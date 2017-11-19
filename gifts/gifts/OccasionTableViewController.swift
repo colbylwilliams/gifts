@@ -1,56 +1,67 @@
 //
-//  GiftTableViewController.swift
+//  OccasionTableViewController.swift
 //  gifts
 //
 //  Created by Colby L Williams on 11/19/17.
 //  Copyright © 2017 Colby L Williams. All rights reserved.
 //
 
-import AzureData
 import Foundation
 import UIKit
+import AzureData
 
-class GiftTableViewController : UITableViewController {
-
+class OccasionTableViewController : UITableViewController {
+    
     @IBOutlet var addButton: UIBarButtonItem!
     
-    var occasion: Occasion? { return OccasionManager.shared.occasion }
-
-    var gifts: [Gift] { return OccasionManager.shared.occasion?.gifts ?? [] }
+    var collection: DocumentCollection? { return OccasionManager.shared.collection }
+    
+    var occasions: [Occasion] { return OccasionManager.shared.occasions }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = occasion?.name
+        refreshData()
         
         navigationItem.rightBarButtonItems = [addButton, editButtonItem]
     }
-
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        tableView.reloadData()
+     
+        self.tableView.reloadData()
     }
 
+    
+    func refreshData() {
+        OccasionManager.shared.refresh {
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+        }
+    }
+    
+    
+    @IBAction func refreshControlValueChanged(_ sender: Any) { refreshData() }
+    
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int { return 1 }
     
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return gifts.count }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return occasions.count }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "giftCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "occasionCell", for: indexPath)
         
-        let gift = gifts[indexPath.row]
+        let occasion = occasions[indexPath.row]
         
-        cell.textLabel?.text = gift.recipient
-        cell.detailTextLabel?.text = gift.id
+        cell.textLabel?.text = occasion.name ?? occasion.id
+        cell.detailTextLabel?.text = occasion.date?.description
         
         return cell
     }
@@ -69,14 +80,24 @@ class GiftTableViewController : UITableViewController {
             deleteResource(at: indexPath, from: tableView)
         }
     }
-    
+
     
     func deleteResource(at indexPath: IndexPath, from tableView: UITableView, callback: ((Bool) -> Void)? = nil) {
-        OccasionManager.shared.delete(giftAt: indexPath.row) { success in
+        OccasionManager.shared.delete(occasionAt: indexPath.row) { success in
             if success {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
             callback?(success)
+        }
+    }
+
+    
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell, let index = tableView.indexPath(for: cell) {
+            OccasionManager.shared.occasion = occasions[index.row]
         }
     }
 }

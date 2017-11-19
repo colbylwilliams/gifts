@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93047DF51FC1D4E200D8C725 /* OccasionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047DF41FC1D4E200D8C725 /* OccasionTableViewController.swift */; };
+		93047DF71FC1D5B800D8C725 /* Occasion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047DF61FC1D5B800D8C725 /* Occasion.swift */; };
+		93047DF91FC1D5C000D8C725 /* OccasionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047DF81FC1D5C000D8C725 /* OccasionManager.swift */; };
+		93047DFB1FC1DCFB00D8C725 /* GiftFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047DFA1FC1DCFB00D8C725 /* GiftFormViewController.swift */; };
+		93047DFD1FC1DD0D00D8C725 /* OccasionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047DFC1FC1DD0D00D8C725 /* OccasionFormViewController.swift */; };
+		93047DFF1FC1DDCE00D8C725 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93047DFE1FC1DDCE00D8C725 /* Eureka.framework */; };
 		93FDD38D1FC14E7900BD1CC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDD38C1FC14E7900BD1CC3 /* AppDelegate.swift */; };
 		93FDD3921FC14E7900BD1CC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FDD3901FC14E7900BD1CC3 /* Main.storyboard */; };
 		93FDD3941FC14E7900BD1CC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93FDD3931FC14E7900BD1CC3 /* Assets.xcassets */; };
@@ -36,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93047DF41FC1D4E200D8C725 /* OccasionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccasionTableViewController.swift; sourceTree = "<group>"; };
+		93047DF61FC1D5B800D8C725 /* Occasion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Occasion.swift; sourceTree = "<group>"; };
+		93047DF81FC1D5C000D8C725 /* OccasionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccasionManager.swift; sourceTree = "<group>"; };
+		93047DFA1FC1DCFB00D8C725 /* GiftFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftFormViewController.swift; sourceTree = "<group>"; };
+		93047DFC1FC1DD0D00D8C725 /* OccasionFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccasionFormViewController.swift; sourceTree = "<group>"; };
+		93047DFE1FC1DDCE00D8C725 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		93FDD3891FC14E7900BD1CC3 /* gifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gifts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93FDD38C1FC14E7900BD1CC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93FDD3911FC14E7900BD1CC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93FDD3BF1FC151E100BD1CC3 /* AzureData.framework in Frameworks */,
+				93047DFF1FC1DDCE00D8C725 /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,12 +117,17 @@
 			isa = PBXGroup;
 			children = (
 				93FDD38C1FC14E7900BD1CC3 /* AppDelegate.swift */,
-				93FDD3C01FC1549500BD1CC3 /* GiftTableViewController.swift */,
-				93FDD3901FC14E7900BD1CC3 /* Main.storyboard */,
 				93FDD3931FC14E7900BD1CC3 /* Assets.xcassets */,
-				93FDD3951FC14E7900BD1CC3 /* LaunchScreen.storyboard */,
-				93FDD3981FC14E7900BD1CC3 /* Info.plist */,
+				93047DF81FC1D5C000D8C725 /* OccasionManager.swift */,
 				93FDD3C21FC1585800BD1CC3 /* Gift.swift */,
+				93047DF61FC1D5B800D8C725 /* Occasion.swift */,
+				93FDD3C01FC1549500BD1CC3 /* GiftTableViewController.swift */,
+				93047DFA1FC1DCFB00D8C725 /* GiftFormViewController.swift */,
+				93047DF41FC1D4E200D8C725 /* OccasionTableViewController.swift */,
+				93047DFC1FC1DD0D00D8C725 /* OccasionFormViewController.swift */,
+				93FDD3981FC14E7900BD1CC3 /* Info.plist */,
+				93FDD3951FC14E7900BD1CC3 /* LaunchScreen.storyboard */,
+				93FDD3901FC14E7900BD1CC3 /* Main.storyboard */,
 			);
 			path = gifts;
 			sourceTree = "<group>";
@@ -135,6 +153,7 @@
 		93FDD3BD1FC151E100BD1CC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93047DFE1FC1DDCE00D8C725 /* Eureka.framework */,
 				93FDD3BE1FC151E100BD1CC3 /* AzureData.framework */,
 			);
 			name = Frameworks;
@@ -295,10 +314,12 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/AzureData.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
 			);
 			name = "Carthage Copy Frameworks";
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AzureData.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Eureka.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -327,9 +348,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93047DFB1FC1DCFB00D8C725 /* GiftFormViewController.swift in Sources */,
+				93047DF91FC1D5C000D8C725 /* OccasionManager.swift in Sources */,
+				93047DFD1FC1DD0D00D8C725 /* OccasionFormViewController.swift in Sources */,
 				93FDD3C31FC1585800BD1CC3 /* Gift.swift in Sources */,
 				93FDD3C11FC1549500BD1CC3 /* GiftTableViewController.swift in Sources */,
+				93047DF51FC1D4E200D8C725 /* OccasionTableViewController.swift in Sources */,
 				93FDD38D1FC14E7900BD1CC3 /* AppDelegate.swift in Sources */,
+				93047DF71FC1D5B800D8C725 /* Occasion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
