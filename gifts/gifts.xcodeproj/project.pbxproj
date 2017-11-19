@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		93FDD38D1FC14E7900BD1CC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDD38C1FC14E7900BD1CC3 /* AppDelegate.swift */; };
-		93FDD38F1FC14E7900BD1CC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDD38E1FC14E7900BD1CC3 /* ViewController.swift */; };
 		93FDD3921FC14E7900BD1CC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FDD3901FC14E7900BD1CC3 /* Main.storyboard */; };
 		93FDD3941FC14E7900BD1CC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93FDD3931FC14E7900BD1CC3 /* Assets.xcassets */; };
 		93FDD3971FC14E7900BD1CC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FDD3951FC14E7900BD1CC3 /* LaunchScreen.storyboard */; };
 		93FDD3A21FC14E7900BD1CC3 /* giftsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDD3A11FC14E7900BD1CC3 /* giftsTests.swift */; };
 		93FDD3AD1FC14E7900BD1CC3 /* giftsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDD3AC1FC14E7900BD1CC3 /* giftsUITests.swift */; };
+		93FDD3BF1FC151E100BD1CC3 /* AzureData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FDD3BE1FC151E100BD1CC3 /* AzureData.framework */; };
+		93FDD3C11FC1549500BD1CC3 /* GiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDD3C01FC1549500BD1CC3 /* GiftTableViewController.swift */; };
+		93FDD3C31FC1585800BD1CC3 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDD3C21FC1585800BD1CC3 /* Gift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		93FDD3891FC14E7900BD1CC3 /* gifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gifts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93FDD38C1FC14E7900BD1CC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		93FDD38E1FC14E7900BD1CC3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		93FDD3911FC14E7900BD1CC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93FDD3931FC14E7900BD1CC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93FDD3961FC14E7900BD1CC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		93FDD3A81FC14E7900BD1CC3 /* giftsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = giftsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93FDD3AC1FC14E7900BD1CC3 /* giftsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = giftsUITests.swift; sourceTree = "<group>"; };
 		93FDD3AE1FC14E7A00BD1CC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93FDD3BE1FC151E100BD1CC3 /* AzureData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AzureData.framework; path = Carthage/Build/iOS/AzureData.framework; sourceTree = "<group>"; };
+		93FDD3C01FC1549500BD1CC3 /* GiftTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftTableViewController.swift; sourceTree = "<group>"; };
+		93FDD3C21FC1585800BD1CC3 /* Gift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93FDD3BF1FC151E100BD1CC3 /* AzureData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,7 @@
 				93FDD3A01FC14E7900BD1CC3 /* giftsTests */,
 				93FDD3AB1FC14E7900BD1CC3 /* giftsUITests */,
 				93FDD38A1FC14E7900BD1CC3 /* Products */,
+				93FDD3BD1FC151E100BD1CC3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +104,12 @@
 			isa = PBXGroup;
 			children = (
 				93FDD38C1FC14E7900BD1CC3 /* AppDelegate.swift */,
-				93FDD38E1FC14E7900BD1CC3 /* ViewController.swift */,
+				93FDD3C01FC1549500BD1CC3 /* GiftTableViewController.swift */,
 				93FDD3901FC14E7900BD1CC3 /* Main.storyboard */,
 				93FDD3931FC14E7900BD1CC3 /* Assets.xcassets */,
 				93FDD3951FC14E7900BD1CC3 /* LaunchScreen.storyboard */,
 				93FDD3981FC14E7900BD1CC3 /* Info.plist */,
+				93FDD3C21FC1585800BD1CC3 /* Gift.swift */,
 			);
 			path = gifts;
 			sourceTree = "<group>";
@@ -123,6 +130,14 @@
 				93FDD3AE1FC14E7A00BD1CC3 /* Info.plist */,
 			);
 			path = giftsUITests;
+			sourceTree = "<group>";
+		};
+		93FDD3BD1FC151E100BD1CC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93FDD3BE1FC151E100BD1CC3 /* AzureData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,7 +327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93FDD38F1FC14E7900BD1CC3 /* ViewController.swift in Sources */,
+				93FDD3C31FC1585800BD1CC3 /* Gift.swift in Sources */,
+				93FDD3C11FC1549500BD1CC3 /* GiftTableViewController.swift in Sources */,
 				93FDD38D1FC14E7900BD1CC3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +497,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N7C38P267Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = gifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colbylwilliams.gifts;
@@ -496,6 +516,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N7C38P267Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = gifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colbylwilliams.gifts;
