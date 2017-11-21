@@ -14,15 +14,21 @@ class GiftTableViewController : UITableViewController {
 
     @IBOutlet var addButton: UIBarButtonItem!
     
-    var occasion: Occasion? { return OccasionManager.shared.occasion }
-
-    var gifts: [Gift] { return OccasionManager.shared.occasion?.gifts ?? [] }
+    @IBOutlet weak var daysLeftLabel: UILabel!
+    @IBOutlet weak var spentLabel: UILabel!
+    @IBOutlet weak var budgetLabel: UILabel!
+    @IBOutlet weak var budgetedLabel: UILabel!
+    
+    var currencyFormatter: CurrencyFormatter { return OccasionManager.shared.currencyFormatter }
+    
+    var occasion: Occasion { return OccasionManager.shared.selectedOccasion }
+    var gifts: [Gift] { return OccasionManager.shared.selectedOccasion.gifts }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = occasion?.name
+        title = occasion.name
         
         navigationItem.rightBarButtonItems = [addButton, editButtonItem]
     }
@@ -30,6 +36,23 @@ class GiftTableViewController : UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let spent = gifts.reduce(0.0) { $0 + ( $1.purchases.reduce(0.0) { $0 + ( $1.price ?? 0) } ) }
+        let budgeted = gifts.reduce(0.0) { $0 + ( $1.budget ?? 0 ) }
+        
+        spentLabel.text = currencyFormatter.string(from: NSNumber(value: spent)) ?? "$0.00"
+        budgetLabel.text = currencyFormatter.string(from: NSNumber(value: occasion.budget ?? 0)) ?? "$0.00"
+        budgetedLabel.text = currencyFormatter.string(from: NSNumber(value: budgeted)) ?? "$0.00"
+        
+        if let seconds = (occasion.deadline ?? occasion.date)?.timeIntervalSinceNow {
+            
+            let minutes = seconds / 60
+            let hours = minutes / 60
+            let days = round(hours / 24)
+            
+            daysLeftLabel.text = "\(days)"
+            
+        }
         
         tableView.reloadData()
     }
@@ -50,7 +73,7 @@ class GiftTableViewController : UITableViewController {
         let gift = gifts[indexPath.row]
         
         cell.textLabel?.text = gift.recipient
-        cell.detailTextLabel?.text = gift.id
+        cell.detailTextLabel?.text = OccasionManager.shared.currencyFormatter.string(from: NSNumber(value: gift.budget ?? 0))
         
         return cell
     }
@@ -77,6 +100,19 @@ class GiftTableViewController : UITableViewController {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
             callback?(success)
+        }
+    }
+    
+    
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let cell = sender as? UITableViewCell, let index = tableView.indexPath(for: cell) {
+            OccasionManager.shared.selectedGift = gifts[index.row]
+        } else {
+            OccasionManager.shared.selectedGift = Gift()
         }
     }
 }

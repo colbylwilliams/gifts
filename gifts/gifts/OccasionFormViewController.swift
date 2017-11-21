@@ -11,68 +11,89 @@ import Eureka
 
 class OccasionFormViewController : FormViewController {
     
-    var currencyFormatter: CurrencyFormatter {
-        return OccasionManager.shared.currencyFormatter
-    }
+    var currencyFormatter: CurrencyFormatter { return OccasionManager.shared.currencyFormatter }
+    
+    var occasion: Occasion { return OccasionManager.shared.selectedOccasion }
+    
 
     let initialDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let name = Occasion.FormTag.name
-        let date = Occasion.FormTag.date
-        let deadlineEnabled = Occasion.FormTag.deadlineEnabled
-        let deadline = Occasion.FormTag.deadline
-        let budget = Occasion.FormTag.budget
-        let saveButton = Occasion.FormTag.saveButton
+        let name        = Occasion.FormTag.name
+        let date        = Occasion.FormTag.date
+        let hasDeadline = Occasion.FormTag.hasDeadline
+        let deadline    = Occasion.FormTag.deadline
+        let budget      = Occasion.FormTag.budget
+        let saveButton  = Occasion.FormTag.saveButton
         
         form
         +++ Section("Occasion")
         <<< TextRow (name.tag) { row in
-            row.title = name.title
-            row.placeholder = name.placeholder
-        }
-        <<< DateInlineRow(date.tag) {
-            $0.title = date.title
-            $0.value = initialDate
-        }.onChange { row in
-            if let deadline = self.form.rowBy(tag: deadline.tag) as? DateInlineRow, deadline.value == nil {
-                deadline.value = row.value
+                row.title = name.title
+                row.placeholder = name.placeholder
+                row.value = occasion.name
+            }.onChange {
+                self.occasion.name = $0.value
             }
-        }
-        <<< SwitchRow(deadlineEnabled.tag){
-            $0.title = deadlineEnabled.title
-        }.onChange { row in
-            let date = (row.value ?? false) ? (self.form.rowBy(tag: date.tag) as? DateInlineRow)?.value : nil
-            (self.form.rowBy(tag: deadline.tag) as? DateInlineRow)?.value = date
-        }
-        <<< DateInlineRow(deadline.tag) {
-            $0.hidden = Condition.function([deadlineEnabled.tag]) { form in
-                return !((form.rowBy(tag: deadlineEnabled.tag) as? SwitchRow)?.value ?? false)
+        <<< DateInlineRow(date.tag) { row in
+                row.title = date.title
+                row.value = occasion.date
+            }.onChange {
+                self.occasion.date = $0.value
+                if let deadline = self.form.rowBy(tag: deadline.tag) as? DateInlineRow, deadline.value == nil {
+                    deadline.value = $0.value
+                }
             }
-            $0.title = deadline.title
-            $0.value = nil
-        }
-        <<< DecimalRow(budget.tag) {
-            $0.useFormatterDuringInput = true
-            $0.title = budget.title
-            $0.placeholder = budget.placeholder
-            $0.formatter = currencyFormatter
-        }
-        +++ Section()
-        <<< ButtonRow(saveButton.tag) {
-            $0.title = saveButton.title
-        }.onCellSelection { (cell, row) in
-            let occasion = Occasion(withTagDictionary: self.form.values())
-            OccasionManager.shared.add(occasion) {
-                self.dismiss(animated: true) { }
+        <<< SwitchRow(hasDeadline.tag) { row in
+                row.title = hasDeadline.title
+                row.value = occasion.hasDeadline
+            }.onChange {
+                
+                let date = ($0.value ?? false) ? (self.form.rowBy(tag: date.tag) as? DateInlineRow)?.value : nil
+                
+                (self.form.rowBy(tag: deadline.tag) as? DateInlineRow)?.value = date
             }
-        }
+        <<< DateInlineRow(deadline.tag) { row in
+                row.hidden = Condition.function([hasDeadline.tag]) { form in
+                    return !((form.rowBy(tag: hasDeadline.tag) as? SwitchRow)?.value ?? false)
+                }
+                row.title = deadline.title
+                row.value = occasion.deadline
+            }.onChange {
+                self.occasion.deadline = $0.value
+            }
+        <<< DecimalRow(budget.tag) { row in
+                row.useFormatterDuringInput = true
+                row.title = budget.title
+                row.placeholder = budget.placeholder
+                row.formatter = currencyFormatter
+                row.value = occasion.budget
+            }.onChange {
+                self.occasion.budget = $0.value
+            }
+        +++ ButtonRow(saveButton.tag) { row in
+                row.title = saveButton.title
+            }.onCellSelection { _, _ in
+                self.saveAndDismiss()
+            }
     }
 
     
+    @IBAction func saveButtonTouchUpInside(_ sender: Any) {
+        saveAndDismiss()
+    }
+    
+    
     @IBAction func cancelButtonTouchUpInside(_ sender: Any) {
         dismiss(animated: true) { }
+    }
+    
+    
+    func saveAndDismiss() {
+        OccasionManager.shared.saveSelectedOccasion {
+            self.dismiss(animated: true) { }
+        }
     }
 }

@@ -13,6 +13,10 @@
 		93047DFB1FC1DCFB00D8C725 /* GiftFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047DFA1FC1DCFB00D8C725 /* GiftFormViewController.swift */; };
 		93047DFD1FC1DD0D00D8C725 /* OccasionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047DFC1FC1DD0D00D8C725 /* OccasionFormViewController.swift */; };
 		93047DFF1FC1DDCE00D8C725 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93047DFE1FC1DDCE00D8C725 /* Eureka.framework */; };
+		93047E031FC318FE00D8C725 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047E021FC318FE00D8C725 /* Purchase.swift */; };
+		93047E051FC3193F00D8C725 /* FormExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047E041FC3193F00D8C725 /* FormExtensions.swift */; };
+		93047E071FC345DC00D8C725 /* PurchaseFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047E061FC345DC00D8C725 /* PurchaseFormViewController.swift */; };
+		9332CAF31FC4A0DB00C5240C /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9332CAF21FC4A0DB00C5240C /* WindowsAzureMessaging.framework */; };
 		93FDD38D1FC14E7900BD1CC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDD38C1FC14E7900BD1CC3 /* AppDelegate.swift */; };
 		93FDD3921FC14E7900BD1CC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FDD3901FC14E7900BD1CC3 /* Main.storyboard */; };
 		93FDD3941FC14E7900BD1CC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93FDD3931FC14E7900BD1CC3 /* Assets.xcassets */; };
@@ -48,6 +52,12 @@
 		93047DFA1FC1DCFB00D8C725 /* GiftFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftFormViewController.swift; sourceTree = "<group>"; };
 		93047DFC1FC1DD0D00D8C725 /* OccasionFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccasionFormViewController.swift; sourceTree = "<group>"; };
 		93047DFE1FC1DDCE00D8C725 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		93047E021FC318FE00D8C725 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		93047E041FC3193F00D8C725 /* FormExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormExtensions.swift; sourceTree = "<group>"; };
+		93047E061FC345DC00D8C725 /* PurchaseFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFormViewController.swift; sourceTree = "<group>"; };
+		9332CAF21FC4A0DB00C5240C /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WindowsAzureMessaging.framework; path = frameworks/WindowsAzureMessaging.framework; sourceTree = "<group>"; };
+		9332CAF41FC4A20F00C5240C /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
+		9332CAF51FC4A73D00C5240C /* gifts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = gifts.entitlements; sourceTree = "<group>"; };
 		93FDD3891FC14E7900BD1CC3 /* gifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gifts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93FDD38C1FC14E7900BD1CC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93FDD3911FC14E7900BD1CC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +82,7 @@
 			files = (
 				93FDD3BF1FC151E100BD1CC3 /* AzureData.framework in Frameworks */,
 				93047DFF1FC1DDCE00D8C725 /* Eureka.framework in Frameworks */,
+				9332CAF31FC4A0DB00C5240C /* WindowsAzureMessaging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,18 +127,23 @@
 		93FDD38B1FC14E7900BD1CC3 /* gifts */ = {
 			isa = PBXGroup;
 			children = (
+				9332CAF51FC4A73D00C5240C /* gifts.entitlements */,
 				93FDD38C1FC14E7900BD1CC3 /* AppDelegate.swift */,
 				93FDD3931FC14E7900BD1CC3 /* Assets.xcassets */,
 				93047DF81FC1D5C000D8C725 /* OccasionManager.swift */,
-				93FDD3C21FC1585800BD1CC3 /* Gift.swift */,
 				93047DF61FC1D5B800D8C725 /* Occasion.swift */,
-				93FDD3C01FC1549500BD1CC3 /* GiftTableViewController.swift */,
-				93047DFA1FC1DCFB00D8C725 /* GiftFormViewController.swift */,
+				93FDD3C21FC1585800BD1CC3 /* Gift.swift */,
+				93047E021FC318FE00D8C725 /* Purchase.swift */,
+				93047E041FC3193F00D8C725 /* FormExtensions.swift */,
 				93047DF41FC1D4E200D8C725 /* OccasionTableViewController.swift */,
+				93FDD3C01FC1549500BD1CC3 /* GiftTableViewController.swift */,
 				93047DFC1FC1DD0D00D8C725 /* OccasionFormViewController.swift */,
+				93047DFA1FC1DCFB00D8C725 /* GiftFormViewController.swift */,
+				93047E061FC345DC00D8C725 /* PurchaseFormViewController.swift */,
 				93FDD3981FC14E7900BD1CC3 /* Info.plist */,
 				93FDD3951FC14E7900BD1CC3 /* LaunchScreen.storyboard */,
 				93FDD3901FC14E7900BD1CC3 /* Main.storyboard */,
+				9332CAF41FC4A20F00C5240C /* Bridge.h */,
 			);
 			path = gifts;
 			sourceTree = "<group>";
@@ -153,6 +169,7 @@
 		93FDD3BD1FC151E100BD1CC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9332CAF21FC4A0DB00C5240C /* WindowsAzureMessaging.framework */,
 				93047DFE1FC1DDCE00D8C725 /* Eureka.framework */,
 				93FDD3BE1FC151E100BD1CC3 /* AzureData.framework */,
 			);
@@ -230,7 +247,15 @@
 				TargetAttributes = {
 					93FDD3881FC14E7900BD1CC3 = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					93FDD39C1FC14E7900BD1CC3 = {
 						CreatedOnToolsVersion = 9.1;
@@ -350,10 +375,13 @@
 			files = (
 				93047DFB1FC1DCFB00D8C725 /* GiftFormViewController.swift in Sources */,
 				93047DF91FC1D5C000D8C725 /* OccasionManager.swift in Sources */,
+				93047E071FC345DC00D8C725 /* PurchaseFormViewController.swift in Sources */,
+				93047E031FC318FE00D8C725 /* Purchase.swift in Sources */,
 				93047DFD1FC1DD0D00D8C725 /* OccasionFormViewController.swift in Sources */,
 				93FDD3C31FC1585800BD1CC3 /* Gift.swift in Sources */,
 				93FDD3C11FC1549500BD1CC3 /* GiftTableViewController.swift in Sources */,
 				93047DF51FC1D4E200D8C725 /* OccasionTableViewController.swift in Sources */,
+				93047E051FC3193F00D8C725 /* FormExtensions.swift in Sources */,
 				93FDD38D1FC14E7900BD1CC3 /* AppDelegate.swift in Sources */,
 				93047DF71FC1D5B800D8C725 /* Occasion.swift in Sources */,
 			);
@@ -521,16 +549,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = gifts/gifts.entitlements;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N7C38P267Q;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = gifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colbylwilliams.gifts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f7bb37fc-e2f4-42f2-8e36-aaf1967ab8b1";
+				PROVISIONING_PROFILE_SPECIFIER = "Gifts Development";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/gifts/Bridge.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -540,16 +574,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = gifts/gifts.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N7C38P267Q;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = gifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colbylwilliams.gifts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c71a6f7b-a4cb-4d38-8dbf-cd17d8fe055c";
+				PROVISIONING_PROFILE_SPECIFIER = "Gifts Distribution Ad Hoc";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/gifts/Bridge.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -14,8 +14,7 @@ class OccasionTableViewController : UITableViewController {
     
     @IBOutlet var addButton: UIBarButtonItem!
     
-    var collection: DocumentCollection? { return OccasionManager.shared.collection }
-    
+
     var occasions: [Occasion] { return OccasionManager.shared.occasions }
     
     
@@ -34,6 +33,13 @@ class OccasionTableViewController : UITableViewController {
         self.tableView.reloadData()
     }
 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        OccasionManager.shared.clearSelectedOccasion()
+    }
+    
     
     func refreshData() {
         OccasionManager.shared.refresh {
@@ -61,7 +67,7 @@ class OccasionTableViewController : UITableViewController {
         let occasion = occasions[indexPath.row]
         
         cell.textLabel?.text = occasion.name ?? occasion.id
-        cell.detailTextLabel?.text = occasion.date?.description
+        cell.detailTextLabel?.text = OccasionManager.shared.currencyFormatter.string(from: NSNumber(value: occasion.budget ?? 0))
         
         return cell
     }
@@ -97,7 +103,7 @@ class OccasionTableViewController : UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell, let index = tableView.indexPath(for: cell) {
-            OccasionManager.shared.occasion = occasions[index.row]
+            OccasionManager.shared.selectedOccasion = occasions[index.row]
         }
     }
 }
