@@ -8,6 +8,7 @@
 
 import UIKit
 import AzureData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
