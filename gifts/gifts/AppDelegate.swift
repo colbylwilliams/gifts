@@ -30,8 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AzureData.verboseLogging = true
 
         
-        if let hubName = Bundle.main.infoDictionary?["AMNotificationHubName"] as? String, accountName != "AZURE_NOTIFICATIONHUB_NAME",
-            let hunConn = Bundle.main.infoDictionary?["AMNotificationHubConnection"]  as? String, accountKey != "AZURE_NOTIFICATIONHUB_CONNECTION" {
+        if let hubName = Bundle.main.infoDictionary?["AMNotificationHubName"] as? String, hubName != "AZURE_NOTIFICATIONHUB_NAME",
+            let hunConn = Bundle.main.infoDictionary?["AMNotificationHubConnection"]  as? String, hunConn != "AZURE_NOTIFICATIONHUB_CONNECTION" {
             
             hubInfo = (hubName, hunConn)
             

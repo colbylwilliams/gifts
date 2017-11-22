@@ -16,7 +16,7 @@
 		93047E031FC318FE00D8C725 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047E021FC318FE00D8C725 /* Purchase.swift */; };
 		93047E051FC3193F00D8C725 /* FormExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047E041FC3193F00D8C725 /* FormExtensions.swift */; };
 		93047E071FC345DC00D8C725 /* PurchaseFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93047E061FC345DC00D8C725 /* PurchaseFormViewController.swift */; };
-		9332CAF31FC4A0DB00C5240C /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9332CAF21FC4A0DB00C5240C /* WindowsAzureMessaging.framework */; };
+		9332CAF71FC5C8D700C5240C /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9332CAF61FC5C8D700C5240C /* WindowsAzureMessaging.framework */; };
 		93FDD38D1FC14E7900BD1CC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDD38C1FC14E7900BD1CC3 /* AppDelegate.swift */; };
 		93FDD3921FC14E7900BD1CC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FDD3901FC14E7900BD1CC3 /* Main.storyboard */; };
 		93FDD3941FC14E7900BD1CC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93FDD3931FC14E7900BD1CC3 /* Assets.xcassets */; };
@@ -55,9 +55,9 @@
 		93047E021FC318FE00D8C725 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		93047E041FC3193F00D8C725 /* FormExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormExtensions.swift; sourceTree = "<group>"; };
 		93047E061FC345DC00D8C725 /* PurchaseFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFormViewController.swift; sourceTree = "<group>"; };
-		9332CAF21FC4A0DB00C5240C /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WindowsAzureMessaging.framework; path = frameworks/WindowsAzureMessaging.framework; sourceTree = "<group>"; };
 		9332CAF41FC4A20F00C5240C /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		9332CAF51FC4A73D00C5240C /* gifts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = gifts.entitlements; sourceTree = "<group>"; };
+		9332CAF61FC5C8D700C5240C /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WindowsAzureMessaging.framework; path = Frameworks/WindowsAzureMessaging.framework; sourceTree = "<group>"; };
 		93FDD3891FC14E7900BD1CC3 /* gifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gifts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93FDD38C1FC14E7900BD1CC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93FDD3911FC14E7900BD1CC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			files = (
 				93FDD3BF1FC151E100BD1CC3 /* AzureData.framework in Frameworks */,
 				93047DFF1FC1DDCE00D8C725 /* Eureka.framework in Frameworks */,
-				9332CAF31FC4A0DB00C5240C /* WindowsAzureMessaging.framework in Frameworks */,
+				9332CAF71FC5C8D700C5240C /* WindowsAzureMessaging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +169,7 @@
 		93FDD3BD1FC151E100BD1CC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9332CAF21FC4A0DB00C5240C /* WindowsAzureMessaging.framework */,
+				9332CAF61FC5C8D700C5240C /* WindowsAzureMessaging.framework */,
 				93047DFE1FC1DDCE00D8C725 /* Eureka.framework */,
 				93FDD3BE1FC151E100BD1CC3 /* AzureData.framework */,
 			);
@@ -557,6 +557,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = gifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -583,6 +584,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = gifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -3,6 +3,7 @@
 
 infoPlist="$MOBILECENTER_SOURCE_DIRECTORY/gifts/gifts/Info.plist"
 
+echo "$infoPlist"
 
 plutil -replace ADDatabaseAccountName -string "$AZURE_COSMOS_DB_ACCOUNT_NAME" "$infoPlist"
 plutil -replace ADDatabaseAccountKey -string "$AZURE_COSMOS_DB_ACCOUNT_KEY" "$infoPlist"
