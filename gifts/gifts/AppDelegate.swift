@@ -19,11 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        if !AzureData.isSetup() {
+        AzureData.configure(forAccountNamed: "gifts", withKey: "B9Tv052q5yOHDDtjIgOo0ymLfOR4u3UXUWSXXXmopGBBmBlmQp3pg7vmp7se0RQRaOYgIcFoKJtZ5RNKKJt7vg==", ofType: .master)
+        
+        if !AzureData.isConfigured() {
             if let accountName = Bundle.main.infoDictionary?["ADDatabaseAccountName"] as? String, accountName != "AZURE_COSMOS_DB_ACCOUNT_NAME",
                 let accountKey = Bundle.main.infoDictionary?["ADDatabaseAccountKey"]  as? String, accountKey  != "AZURE_COSMOS_DB_ACCOUNT_Key" {
                 
-                AzureData.setup(forAccountNamed: accountName, withKey: accountKey, ofType: .master)
+                AzureData.configure(forAccountNamed: accountName, withKey: accountKey, ofType: .master)
             }
         }
         
